@@ -1,0 +1,25 @@
+<script lang="ts">
+    import { FontWeightText } from '../Text.svelte'
+    import { HR, BalanceSummarySection, Text } from '..'
+    import { selectedAccount } from '@core/account'
+    import { localize } from '@core/i18n'
+</script>
+
+<div class="flex flex-col space-y-6">
+    <Text type="h3" fontWeight={FontWeightText.semibold} lineHeight="6">
+        {localize('popups.storageDepositBreakdown.title')}
+    </Text>
+    <HR hidden />
+    <BalanceSummarySection
+        title={localize('popups.storageDepositBreakdown.pendingTransactions.title')}
+        subtitle={localize('popups.storageDepositBreakdown.pendingTransactions.subtitle')}
+        amount={(Number($selectedAccount?.balances.baseCoin.total) ?? 0) -
+            Number($selectedAccount?.balances.baseCoin.available ?? 0)}
+    />
+    <HR hidden />
+    <BalanceSummarySection
+        title={localize('popups.storageDepositBreakdown.totalStorageDeposit')}
+        amount={$selectedAccount.balances.requiredStorageDeposit}
+        totalRow
+    />
+</div>

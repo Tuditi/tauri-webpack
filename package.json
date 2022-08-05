@@ -1,6 +1,9 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/shared",
+    "packages/desktop"
+  ],
   "devDependencies": {
     "@tauri-apps/cli": "^1.0.5",
     "@tsconfig/svelte": "^1.0.10",

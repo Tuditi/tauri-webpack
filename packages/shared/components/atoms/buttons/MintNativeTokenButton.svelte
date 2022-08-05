@@ -1,0 +1,17 @@
+<script lang="ts">
+    import { localize } from '@core/i18n'
+    import { openPopup } from '@lib/popup'
+    import { OnboardingButton } from '../..'
+
+    function handleMintNativeToken() {
+        openPopup({
+            type: 'mintNativeTokenForm',
+        })
+    }
+</script>
+
+<OnboardingButton
+    primaryText={localize('actions.mintNativeToken')}
+    secondaryText={localize('general.mintNativeTokenDescription')}
+    onClick={handleMintNativeToken}
+/>
